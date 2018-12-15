@@ -1,0 +1,39 @@
+TITLE:: Note
+summary:: Notes in ABC notation.
+related:: Classes/Symbol, Classes/Percussion, Classes/Chord, Classes/Progression, Classes/Scale
+categories:: Math, Tuning
+
+
+DESCRIPTION::
+
+Takes an "note name" (link::Classes/Symbol::) and returns the semitone in a chromatic scale (0..12).
+
+EXAMPLES::
+
+code::
+Note.at(\c);
+-> 0
+
+Note.g;
+-> 7
+
+Note.directory;
+-> a: Semitone 9
+af: Semitone 8
+as: Semitone 10
+b: Semitone 11
+bf: Semitone 10
+c: Semitone 0
+cs: Semitone 1
+d: Semitone 2
+...
+
+Note.names;
+-> [ a, af, as, b, bf, c, cs, d, df, ds, e, ef, f, fs, g, gf, gs ]
+
+[\c, \a, \f, \e].asNote;
+-> [ 0, 9, 5, 4 ]
+
+Pseq([\c, \a, \f, \e], inf).asStream.nextN(10);
+-> [ 0, 9, 5, 4, 0, 9, 5, 4, 0, 9 ]
+::

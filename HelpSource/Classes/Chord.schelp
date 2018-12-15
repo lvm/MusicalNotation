@@ -1,0 +1,48 @@
+TITLE:: Chord
+summary:: Represents a Chord.
+related:: Classes/Symbol, Classes/Percussion, Classes/Note, Classes/Progression, Classes/Scale
+categories:: Math, Tuning
+
+
+DESCRIPTION::
+
+Takes an "chord name" (link::Classes/Symbol::) and returns the semitones in a chromatic scale (0..12).
+
+EXAMPLES::
+
+code::
+Chord.at(\maj);
+-> Chord([ 0, 4, 7 ], "Major")
+
+Chord.maj;
+-> Chord([ 0, 4, 7 ], "Major")
+
+Chord.choose(4);
+-> Chord([ 0, 4, 6, 10 ], "7 Flat 5")
+
+Chord.new(notes: [0, 1, 2], name: "Test chord");
+-> Chord([ 0, 1, 2 ], "Test chord")
+
+Chord.all.put(\test, Chord.new(notes: [0, 1, 2], name: "Test chord"));
+-> IdentityDictionary[ (test -> Chord.test) ]
+
+Chord.test;
+-> Chord([ 0, 1, 2 ], "Test chord")
+
+Chord.directory;
+-> Add Eleven: add11 has 5 Notes
+Add Thirteen: add13 has 5 Notes
+Add 9: add9 has 4 Notes
+Augmented: aug has 3 Notes
+Diminished: dim has 3 Notes
+Diminished 7th: dim7 has 4 Notes
+Dominant 7th: dom7 has 4 Notes
+Eleven: eleven has 6 Notes
+...
+
+Chord.names;
+-> [ sixSus4, m9, sevenSharp9, maj11, m7, sevenFlat5, dom7, m6add9, m7dim, m7Flat5, one, dim, sus4, six, m11, maj, majAdd13, m7Flat9, mMaj7, mMaj9, sevenSharp5, dim7, mMaj11, add11, maj9Sus4, m6, eleven, mAdd13, mMajAdd11, sevenFlat9, aug, m13, sevenSus4, maj7Sus4, maj7, sevenSharp5Flat9, sus2, thirteen, mAdd11, m7Sharp5, add13, nineSharp11, madd9, min, majAdd11, mMaj13, nine, maj9, nineFlat13, add9, sixadd9, five, maj13, mMajAdd13, nineSus4 ]
+
+Pseq([\maj, \min], inf).asStream.nextN(10);
+-> [ [ 0, 4, 7 ], [ 0, 3, 7 ], [ 0, 4, 7 ], [ 0, 3, 7 ], [ 0, 4, 7 ], [ 0, 3, 7 ], [ 0, 4, 7 ], [ 0, 3, 7 ], [ 0, 4, 7 ], [ 0, 3, 7 ] ]
+::

@@ -1,0 +1,51 @@
+TITLE:: Progression
+summary:: Represents a Chord Progression.
+related:: Classes/Symbol, Classes/Percussion, Classes/Note, Classes/Chord, Classes/Scale
+categories:: Math, Tuning
+
+
+DESCRIPTION::
+
+Takes an "progression name" (link::Classes/Symbol::) and returns the chords in it.
+
+EXAMPLES::
+
+code::
+Progression.at(\sad);
+-> Progression([ 0, 3, 4, 4 ], "Sad")
+
+Progression.sad;
+-> Progression([ 0, 3, 4, 4 ], "Sad")
+
+Progression.new(degrees: [2, 3, 1, 5], name: "Weird");
+-> Progression([ 2, 3, 1, 5 ], "Weird")
+
+Progression.all.put(\weird, Progression.new(degrees: [2, 3, 1, 5], name: "Weird"));
+-> IdentityDictionary[ (weird -> Progression.weird) ]
+
+Progression.weird;
+-> Progression([ 2, 3, 1, 5 ], "Weird")
+
+Progression.sad.roman;
+-> i-iv-v-v
+
+Progression.directory;
+-> Ballad: ballad i-i-iv-vi
+Ballad Alt: balladAlt i-iv-vi-v
+Blues: blues i-iv-i-v-i
+Blues Alt: bluesAlt i-i-i-i-iv-iv-i-i-v-iv-i-i
+Creepy: creepy i-vi-iv-v
+Creepy Alt: creepyAlt i-vi-ii-v
+50s: fifties i-vi-iv-v
+General: gral i-iv-v-i
+...
+
+Progression.names;
+-> [ ballad, balladAlt, blues, bluesAlt, creepy, creepyAlt, eleven, elevenb, elevenc, elevend, fifties, gral, gralAlt, nrg, pop, rebel, rock, rockAlt, roll, sad, unresolved ]
+
+Scale.major.chordProgression(\sad, \c);
+-> [ [ 0, 4, 7 ], [ 5, 9, 12 ], [ 7, 11, 14 ], [ 7, 11, 14 ] ]
+
+Scale.major.chordProgression(\weird, \g);
+-> [ [ 11, 14, 18 ], [ 12, 16, 19 ], [ 9, 12, 16 ], [ 16, 19, 23 ] ]
+::

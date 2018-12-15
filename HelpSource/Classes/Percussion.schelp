@@ -1,0 +1,38 @@
+TITLE:: Percussion
+summary:: A class that returns associated MIDI notes according to General MIDI Level 2.
+related:: Classes/Symbol, Classes/Note, Classes/Chord, Classes/Progression, Classes/Scale
+categories:: External Control>MIDI
+
+DESCRIPTION::
+
+Takes an "instrument name" (link::Classes/Symbol::) and returns the related MIDI note.
+
+EXAMPLES::
+
+code::
+Percussion.at(\bd);
+-> 36
+
+Percussion.bd;
+-> 36
+
+Percussion.directory;
+-> abd: MIDI Note 35
+ag: MIDI Note 68
+bd: MIDI Note 36
+be: MIDI Note 53
+bt: MIDI Note 84
+ca: MIDI Note 69
+cas: MIDI Note 85
+ch: MIDI Note 42
+...
+
+Percussion.names;
+-> [ abd, ag, bd, be, bt, ca, cas, ch, cl, cow, cp, cr, cr2, cy, esn, gui, hag, hb, hc, hft, hh, hmt, hq, ht, hti, hwb, jb, lag, lb, lc, lft, lgui, lmt, lt, lti, lwb, lwi, ma, mb, mc, mcl, mhc, ms, mt, oc, oh, ohc, os, ot, ph, ri, ri2, rm, scr, scy, sgui, sha, sl, sn, spl, sps, sqc, st, sti, swi, ta, vib, whi ]
+
+[\bd, \sn, \ch, \oh].asPercussion;
+-> [ 36, 38, 42, 46 ]
+
+Pseq([\bd, \sn, \ch, \oh], inf).asStream.nextN(10);
+-> [ 36, 38, 42, 46, 36, 38, 42, 46, 36, 38 ]
+::
