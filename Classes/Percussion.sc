@@ -22,7 +22,7 @@ Percussion {
 
   init { |inSymbol|
     symbol = inSymbol ?? \r;
-    ^this.prPercussion(symbol);
+    ^this;
   }
 
   *initClass {
@@ -100,31 +100,29 @@ Percussion {
     all = all.freezeAsParent;
   }
 
-  *at { |key| ^all.at(key); }
-
-  *names { ^(all.keys.asArray ++ all.parent.keys).sort; }
+  *names { ^all.parent.keys.asArray.sort; }
 
   *directory {
     ^this.names.collect{ |k| "%: MIDI Note %".format(k, all.at(k)) }.join("\n")
   }
 
-  prPercussion { |input = \rest|
-    // recursive funkyness
-    if(input.isKindOf(Collection)) { ^input.collect(this.prPercussion(_)); };
-    // return the note or a rest
-    if(all.at(input.asSymbol).notNil) {  ^all.at(input.asSymbol);  };
-    if(input.isRest) { ^Rest(); };
-    // or whatever
+  *at { |input = \rest|
+    if(all.at(input).notNil) {  ^all.at(input);  };
+    if(input.isRest && [\r,\rest,\].indexOf(input).notNil) { ^Rest(); };
     ^input;
   }
 
   *doesNotUnderstand { |selector, args|
-    var percussion = this.at(selector, args).deepCopy;
-    ^percussion ?? { super.doesNotUnderstand(selector, args) };
+    var percussion;
+    if (selector.class == Symbol) {
+      percussion = this.at(selector, args).deepCopy;
+      ^percussion ?? { super.doesNotUnderstand(selector, args) };
+    }
+    ^super.doesNotUnderstand(selector, args);
   }
 
   printOn { |stream| this.storeOn(stream) }
-  storeOn { |stream| stream << "Percussion(\\" << symbol << ")"; }
+  storeOn { |stream| stream << this.class.name << "(\\" << symbol << ")"; }
   storeArgs { ^[symbol] }
 
 }
