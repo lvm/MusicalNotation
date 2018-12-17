@@ -83,6 +83,14 @@ Chord {
     all = all.freezeAsParent;
   }
 
+  == { arg that;
+    ^this.compareObject(that, #[\notes])
+  }
+
+  hash {
+    ^this.instVarHash(#[\notes])
+  }
+
   *at { |key| ^all.at(key); }
 
   *names { ^(all.keys.asArray ++ all.parent.keys).sort; }

@@ -50,6 +50,14 @@ Progression {
     all = all.freezeAsParent;
   }
 
+  == { arg that;
+    ^this.compareObject(that, #[\degrees])
+  }
+
+  hash {
+    ^this.instVarHash(#[\degrees])
+  }
+
   *at { |key| ^all.at(key); }
 
   *names { ^(all.keys.asArray ++ all.parent.keys).sort; }

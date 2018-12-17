@@ -49,7 +49,7 @@ Note {
   *at { |input = \rest|
     if(all.at(input).notNil) { ^all.at(input); };
     if(input.isRest && [\r,\rest,\].indexOf(input).notNil) { ^Rest(); };
-    ^input;
+    ^nil;
   }
 
   *doesNotUnderstand { |selector, args|
