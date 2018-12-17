@@ -8,6 +8,44 @@ DESCRIPTION::
 
 Takes an "progression name" (link::Classes/Symbol::) and returns the chords in it.
 
+
+CLASSMETHODS::
+
+METHOD::all
+The Progression repository, to which new progressions can be added.
+
+METHOD:: at
+ARGUMENT:: input
+Takes a symbol and returns a progression.
+
+METHOD:: directory
+Lists all link::Classes/Progression:: names and Chords.
+
+METHOD:: names
+Lists all link::Classes/Progression:: names.
+
+METHOD::choose
+Creates a random Progression from the library, constrained by size.
+
+METHOD::chooseFromSelected
+Creates a random Progression from the library, constrained by a function.
+
+METHOD::new
+Creates a Progression from scratch. strong::notes:: should be an array of Integers.
+
+PRIVATE:: doesNotUnderstand, new, all
+
+INSTANCEMETHODS::
+
+METHOD::size
+Returns the length of the Progression.
+
+METHOD::degrees
+Returns an Array of Integers.
+
+PRIVATE:: symbol, name, storedKey, hash, ==
+
+
 EXAMPLES::
 
 code::

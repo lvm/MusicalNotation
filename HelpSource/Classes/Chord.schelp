@@ -8,6 +8,45 @@ DESCRIPTION::
 
 Takes an "chord name" (link::Classes/Symbol::) and returns the semitones in a chromatic scale (0..12).
 
+
+
+CLASSMETHODS::
+
+METHOD::all
+The Chord repository, to which new chords can be added.
+
+METHOD:: at
+ARGUMENT:: input
+Takes a symbol and returns a chord.
+
+METHOD:: directory
+Lists all link::Classes/Note:: names and Semitones.
+
+METHOD:: names
+Lists all link::Classes/Note:: names.
+
+METHOD::choose
+Creates a random chord from the library, constrained by size.
+
+METHOD::chooseFromSelected
+Creates a random chord from the library, constrained by a function.
+
+METHOD::new
+Creates a Chord from scratch. strong::notes:: should be an array of Integers.
+
+PRIVATE:: doesNotUnderstand, new, all
+
+INSTANCEMETHODS::
+
+METHOD::size
+Returns the length of the chord.
+
+METHOD::notes
+Returns an Array of Integers.
+
+PRIVATE:: symbol, name, storedKey, hash, ==
+
+
 EXAMPLES::
 
 code::

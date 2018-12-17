@@ -8,6 +8,28 @@ DESCRIPTION::
 
 Takes an "note name" (link::Classes/Symbol::) and returns the semitone in a chromatic scale (0..12).
 
+
+CLASSMETHODS::
+
+METHOD::all
+The Note repository.
+
+METHOD:: at
+ARGUMENT:: input
+Access from the Note repository.
+
+METHOD:: directory
+Lists all link::Classes/Note:: names and Semitones.
+
+METHOD:: names
+Lists all link::Classes/Note:: names.
+
+PRIVATE:: doesNotUnderstand, new, all
+
+INSTANCEMETHODS::
+
+PRIVATE:: symbol
+
 EXAMPLES::
 
 code::
