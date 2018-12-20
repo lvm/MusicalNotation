@@ -2,6 +2,6 @@
 \name: "MusicalNotation",
 \summary: "A set of classes related to Musical Notation (Percussion, Note, Chord, Progression).",
 \author: "Mauro Lizaur",
-\version: 0.1,
+\version: 0.2.32,
 \organization: "buenos aires live code",
 )
