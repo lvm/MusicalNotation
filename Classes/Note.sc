@@ -18,7 +18,7 @@ Note {
 
   init { |inSymbol|
     symbol = inSymbol ?? \r;
-    ^this.prSemitone(symbol);
+    ^this;
   }
 
   *initClass {
