@@ -28,6 +28,14 @@ PRIVATE:: doesNotUnderstand, new, all
 
 INSTANCEMETHODS::
 
+METHOD:: semitone
+Returns link::Classes/Note:: semitone.
+code::
+a = Note.new(\a);
+a.semitone;
+-> 9
+::
+
 PRIVATE:: symbol
 
 EXAMPLES::

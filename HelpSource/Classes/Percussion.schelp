@@ -26,6 +26,14 @@ PRIVATE:: doesNotUnderstand, new
 
 INSTANCEMETHODS::
 
+METHOD:: midinote
+Returns link::Classes/Percussion:: MIDI note.
+code::
+k = Percussion.new(\bd);
+k.midinote;
+-> 36
+::
+
 PRIVATE:: symbol
 
 EXAMPLES::

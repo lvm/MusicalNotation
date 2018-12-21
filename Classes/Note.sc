@@ -52,6 +52,8 @@ Note {
     ^nil;
   }
 
+  semitone { ^all.at(symbol); }
+
   *doesNotUnderstand { |selector, args|
     var note;
     if (selector.class == Symbol) {

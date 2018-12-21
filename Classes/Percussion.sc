@@ -112,6 +112,8 @@ Percussion {
     ^nil;
   }
 
+  midinote { ^all.at(symbol); }
+
   *doesNotUnderstand { |selector, args|
     var percussion;
     if (selector.class == Symbol) {
