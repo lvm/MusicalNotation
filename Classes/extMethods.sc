@@ -58,7 +58,10 @@ http://www.cyberpunk.net.ar/
   asMusicalNotation {
     ^this.collect{ |item|
       ^(item.isRest.not).if
-      { item.asMusicalNotation }
+      { (item.isKindOf(Meta_Pattern).not).if 
+        { item.asMusicalNotation }
+        { item }
+      }
       { item }
     };
   }
