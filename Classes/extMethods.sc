@@ -57,7 +57,7 @@ http://www.cyberpunk.net.ar/
   asPercussion { ^this.collect(Percussion.at(_)); }
   asMusicalNotation {
     ^this.collect{ |item|
-      ^(item.isRest.not).if
+      (item.isRest.not).if
       { (item.isKindOf(Meta_Pattern).not).if 
         { item.asMusicalNotation }
         { item }
